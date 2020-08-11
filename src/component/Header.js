@@ -25,7 +25,9 @@ class Header extends React.Component{
     return(
               <div>
                   
-                  <img className="header_img" src={appbar} alt="header" style={{width:"100%",height:80}} aria-labelledby = "cricket association for the blind in india"></img>
+                  <img className="header_img" src={appbar} alt="header" style={{width:"100%",height:80}} 
+                        aria-label = "cricket association for the blind in india">
+                  </img>
                  
               </div>
       );
