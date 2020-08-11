@@ -58,15 +58,17 @@ class SimpleTabs extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Tabs value={value} onChange={this.handleChange}>
-            <Tab label="Live Score" />
+            <Tab label="Live Score"   
+            aria-labelledby = "Live Score"
+            aria-required="true" />
             <Tab label="Teams" />
             <Tab label="Series" />
             <Tab label="Upcoming Fixtures" />
             <AccessibilityIcon fontSize="large"/>
           </Tabs>
         </AppBar>
-        {value === 0 && (
-          <TabContainer>
+        
+          <Container>
             <Typography
               variant="h5"
               align="left"
@@ -172,10 +174,9 @@ class SimpleTabs extends React.Component {
                 </CardActions>
               </Card>
             </Container>
-          </TabContainer>
-        )}
-        {value === 1 && <TabContainer>Item Two</TabContainer>}
-        {value === 2 && <TabContainer>Item Three</TabContainer>}
+          </Container>
+     
+      
       </div>
     );
   }
