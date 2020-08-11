@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -11,18 +8,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import { Container } from "@material-ui/core";
-import AccessibilityIcon from "@material-ui/icons/Accessibility";
-function TabContainer(props) {
-  return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
-  );
-}
-
-TabContainer.propTypes = {
-  children: PropTypes.node.isRequired
-};
+import axios from 'axios'
+import moment from 'moment';
 
 const styles = (theme) => ({
   root: {
@@ -41,32 +28,44 @@ const styles = (theme) => ({
   }
 });
 
-class SimpleTabs extends React.Component {
-  state = {
-    value: 0
-  };
+var date = new Date();
+var todayDate = moment(date).format('YYYY-MM-DD')
 
+var time = moment(date).format('hh:mm:ss')
+
+class Matches extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      fixtures:[],
+        
+    };
+  }
+ 
+ 
+
+  componentDidMount(){
+    axios.get("http://localhost:8080/cricket-tournament/fixtures")
+        .then(response => response.data)
+        .then((data) => {
+          this.setState({fixtures:data});
+        });
+  }
+  
   handleChange = (event, value) => {
     this.setState({ value });
   };
 
   render() {
     const { classes } = this.props;
-    const { value } = this.state;
-
+    {this.state.fixtures.map((fixture) => {if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time<fixture.fixture_end_time) 
+      {
     return (
+      
       <div className={classes.root}>
-        <AppBar position="static">
-          <Tabs value={value} onChange={this.handleChange}>
-            <Tab label="Live Score" />
-            <Tab label="Teams" />
-            <Tab label="Series" />
-            <Tab label="Upcoming Fixtures" />
-            <AccessibilityIcon fontSize="large"/>
-          </Tabs>
-        </AppBar>
-        {value === 0 && (
-          <TabContainer>
+        
+        
+         
             <Typography
               variant="h5"
               align="left"
@@ -94,12 +93,19 @@ class SimpleTabs extends React.Component {
                 <CardActions>
                 
                     <Button variant="contained" color="primary">
-                      ScoreCard
+                    View ScoreCard
                     </Button>
                   
                 </CardActions>
               </Card>
             </Container>
+            </div>
+        }
+      }
+      {this.state.fixtures.map((fixture) => {if (moment(todayDate).isAfter(fixture.fixture_date)) 
+        {
+        return(
+          <div>
             <Typography
               variant="h5"
               align="left"
@@ -124,7 +130,7 @@ class SimpleTabs extends React.Component {
                 <CardActions>
                   <center>
                     <Button variant="contained" color="primary" >
-                      ScoreCard
+                      View ScoreCard
                     </Button>
                   </center>
                 </CardActions>
@@ -145,7 +151,7 @@ class SimpleTabs extends React.Component {
                 <CardActions>
                   
                     <Button variant="contained" color="primary">
-                      ScoreCard
+                    View ScoreCard
                     </Button>
                   
                 </CardActions>
@@ -166,23 +172,21 @@ class SimpleTabs extends React.Component {
                 <CardActions>
                   <center>
                     <Button variant="contained" color="primary">
-                      ScoreCard
+                    View ScoreCard
                     </Button>
                   </center>
                 </CardActions>
               </Card>
             </Container>
-          </TabContainer>
-        )}
-        {value === 1 && <TabContainer>Item Two</TabContainer>}
-        {value === 2 && <TabContainer>Item Three</TabContainer>}
+        
+      
+        
       </div>
+        }}
     );
   }
 }
 
-SimpleTabs.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
-export default withStyles(styles)(SimpleTabs);
+
+export default withStyles(styles)(Matches);
