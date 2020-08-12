@@ -11,11 +11,7 @@ import { Divider, Container } from '@material-ui/core';
 import Clock from './Clock';
 import axios from 'axios'
 import moment from 'moment';
-<<<<<<< HEAD
-//import Pagination from '@material-ui/lab/Pagination';
-=======
-import Pagination from '@material-ui/lab/Pagination';
->>>>>>> b5229c72859d2b65c8a5eebf41ce0af5643005eb
+
 
 
 const useStyles = theme => ({
@@ -49,11 +45,7 @@ var todayDate = moment(date).format('YYYY-MM-DD')
 var time = moment(date).format('hh:mm:ss')
 
 
-<<<<<<< HEAD
 class LiveScore extends React.Component{
-=======
-class MatchSelection extends React.Component{
->>>>>>> b5229c72859d2b65c8a5eebf41ce0af5643005eb
     constructor(props){
       super(props);
       this.state={
@@ -71,9 +63,7 @@ class MatchSelection extends React.Component{
             this.setState({fixtures:data});
           });
     }
-    PrematchScreenClicked(id) {
-      this.props.history.push(`/scorer/PreMatch/${id}`)
-  }
+   
 
   render(){
     const {classes} = this.props;
