@@ -11,7 +11,7 @@ import '../PlayerDisplay.css';
 
 import TeamDataService from '../Service/TeamDataService';
 import PlayerDataService from '../Service/PlayerDataService';
-import ScoreCardDataService from '../Service/ScoreCardDataService';
+import ScoreCardDataService from '../Service/ScorecardDataService';
 import Male from '../assests/img_avatar.png';
 import player from '../assests/player.png'; 
 import player2 from '../assests/player2.png'; 
@@ -256,6 +256,7 @@ getBowlingStats(){
                 <Paper className={classes.root} style={{paddingLeft:"50px",marginBottom:"100px"}} >
                
                  <h2>{this.state.first_name} {this.state.last_name} {this.state.player_initials}</h2> 
+                 <br/>
                 
                  <div className="align_left">
                   Gender: <i className="change_font">{this.state.gender}</i><br/><br/>

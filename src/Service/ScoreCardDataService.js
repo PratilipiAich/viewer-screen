@@ -4,7 +4,7 @@ import axios from 'axios'
 const SCORECARD_API_URL = 'http://localhost:8080/cricket-tournament';
 const PRE_MATCH_API_URL = 'http://localhost:8080/cricket-tournament'
 
-class ScoreCardDataService {
+class ScorecardDataService {
 
         retrieveBatsmen(id) {
             return axios.get(`${SCORECARD_API_URL}/batsman-by-match/${id}`);
@@ -63,4 +63,4 @@ class ScoreCardDataService {
         }
 }
 
-export default new ScoreCardDataService()
+export default new ScorecardDataService()

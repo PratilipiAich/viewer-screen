@@ -65,6 +65,11 @@ class LiveScore extends React.Component{
           });
     }
 
+    handleSelect = e => {
+       
+      this.props.history.push(`/viewer/ScoreCard/${e}`)
+      
+  }
   render(){
     const {classes} = this.props;
     return (
@@ -90,7 +95,7 @@ class LiveScore extends React.Component{
                </CardContent>
             <Divider />
             <CardActions>
-              <Button variant="contained" color="primary" >View ScoreCard</Button>
+              <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)} >View ScoreCard</Button>
             </CardActions>
             </Card>
             </div>
@@ -124,7 +129,7 @@ class LiveScore extends React.Component{
               </CardContent>
             <Divider />
             <CardActions>
-              <Button variant="contained" color="primary">View ScoreCard</Button>
+              <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
             </CardActions>
             </Card>
           

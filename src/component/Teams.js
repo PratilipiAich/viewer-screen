@@ -34,7 +34,7 @@ class Teams extends React.Component {
     }
 
     handleTeamPlayerDisplay = (id)=>{
-        this.props.history.push(`/viewer/TeamWisePlayer/{id}`)
+        this.props.history.push(`/viewer/TeamWisePlayers/${id}`)
     }
 
 render(){
@@ -51,7 +51,7 @@ render(){
             <Grid container spacing = {8}  alignItems="flex-start" justify = "center" direction = "direction-xs-row" alignContent = "flex-start">
             <Grid item xs = {4} sm = {6}>
             <Card className={classes.card} align = "center">
-            <CardActionArea onClick={() => this.handleTeamPlayerDisplay(team.teamId)}>
+            <CardActionArea onClick={() => this.handleTeamPlayerDisplay(team.team_id)}>
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="h2" align = "center">
                   Team {team.tname}
