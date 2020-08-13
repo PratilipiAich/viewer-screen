@@ -64,8 +64,6 @@ class LiveScore extends React.Component{
             this.setState({fixtures:data});
           });
     }
-   
-  
 
   render(){
     const {classes} = this.props;
@@ -144,4 +142,6 @@ class LiveScore extends React.Component{
 }
 
 
+
 export default withStyles(useStyles)(LiveScore);
+
