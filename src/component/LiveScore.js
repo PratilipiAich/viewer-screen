@@ -56,18 +56,7 @@ class SimpleTabs extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
-          <Tabs value={value} onChange={this.handleChange}>
-            <Tab label="Live Score"   
-            aria-labelledby = "Live Score"
-            aria-required="true" />
-            <Tab label="Teams" />
-            <Tab label="Series" />
-            <Tab label="Upcoming Fixtures" />
-            <AccessibilityIcon fontSize="large"/>
-          </Tabs>
-        </AppBar>
-        
+       
           <Container>
             <Typography
               variant="h5"
