@@ -3,15 +3,13 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Grid from '@material-ui/core/Grid'
+//import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Divider, Container } from '@material-ui/core';
 //import MatchSelectionService from "../service/MatchSelectionService"
-import Clock from './Clock';
 import axios from 'axios'
 import moment from 'moment';
-import Pagination from '@material-ui/lab/Pagination';
 
 
 const useStyles = theme => ({
@@ -23,6 +21,10 @@ const useStyles = theme => ({
     '& > *': {
       marginTop: theme.spacing(2),
     },
+  },
+  node: {
+    display: "flex",
+    float: "left"
   },
   title: {
     fontSize: 14,
@@ -45,13 +47,12 @@ var todayDate = moment(date).format('YYYY-MM-DD')
 var time = moment(date).format('hh:mm:ss')
 
 
-class MatchSelection extends React.Component{
+class LiveScore extends React.Component{
     constructor(props){
       super(props);
       this.state={
         fixtures:[]
       };
-      this.PrematchScreenClicked = this.PrematchScreenClicked.bind(this)
 
     }
    
@@ -63,20 +64,21 @@ class MatchSelection extends React.Component{
             this.setState({fixtures:data});
           });
     }
-    PrematchScreenClicked(id) {
-      this.props.history.push(`/scorer/PreMatch/${id}`)
-  }
+   
+  
 
   render(){
     const {classes} = this.props;
     return (
       <Container>
        
-        <Typography variant="h5" align="left" style={{marginTop:20,marginLeft:80}} >Ongoing Match {time}</Typography> 
+    <Typography variant="h5" align="left" style={{marginTop:20, marginLeft: 80}} >Ongoing Match </Typography> 
         {this.state.fixtures.map((fixture) => {if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time<fixture.fixture_end_time) 
         {
         return(
+         
           //alert(time,fixture.fixture_time);
+          <div>
               <Card className = {classes.root} variant="outlined">
               <CardContent>
               <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
@@ -93,6 +95,7 @@ class MatchSelection extends React.Component{
               <Button variant="contained" color="primary" >View ScoreCard</Button>
             </CardActions>
             </Card>
+            </div>
           );
         }
         {/*else{
@@ -103,14 +106,14 @@ class MatchSelection extends React.Component{
   })}
       
   
-        <Typography variant="h5" align="left" style={{marginTop:20,marginLeft:80}} >Past Matches</Typography> 
+       
+      <Typography variant="h5" align="left" style={{marginTop:20, marginLeft: 80}} >Past Matches</Typography> 
         
      {this.state.fixtures.map((fixture) => {if (moment(todayDate).isAfter(fixture.fixture_date)) 
         {
         return(
-        
-        <Grid container spacing={6} direction="row" justify="flex-start" alignItems="flex-start">
-          <Grid item >
+        <div className={classes.node}>
+               
             <Card className={classes.root} variant="outlined">
               <CardContent>
               <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
@@ -126,8 +129,9 @@ class MatchSelection extends React.Component{
               <Button variant="contained" color="primary">View ScoreCard</Button>
             </CardActions>
             </Card>
-          </Grid>
-        </Grid>
+          
+        </div>
+  
         );
       }
      }
@@ -140,4 +144,4 @@ class MatchSelection extends React.Component{
 }
 
 
-export default withStyles(useStyles)(MatchSelection);
+export default withStyles(useStyles)(LiveScore);
