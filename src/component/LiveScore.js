@@ -1,178 +1,147 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
-import { Container } from "@material-ui/core";
-import AccessibilityIcon from "@material-ui/icons/Accessibility";
-function TabContainer(props) {
-  return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
-  );
-}
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+//import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { Divider, Container } from '@material-ui/core';
+//import MatchSelectionService from "../service/MatchSelectionService"
+import axios from 'axios'
+import moment from 'moment';
 
-TabContainer.propTypes = {
-  children: PropTypes.node.isRequired
-};
 
-const styles = (theme) => ({
+const useStyles = theme => ({
   root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
+    width: 400,
+    height:'auto',
+    marginLeft:100,
+    marginTop:20,
+    '& > *': {
+      marginTop: theme.spacing(2),
+    },
   },
   node: {
-    width: 300,
-    height: "auto",
-    marginLeft: 100,
-    marginTop: 20
-  },
-  stem: {
     display: "flex",
-    float: "right"
+    float: "left"
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  typo:{
+    variant:'h4',
+    color:'textSecondary',
+    align:'center',
   }
+
 });
 
-class SimpleTabs extends React.Component {
-  state = {
-    value: 0
-  };
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
+var date = new Date();
+var todayDate = moment(date).format('YYYY-MM-DD')
 
-  render() {
-    const { classes } = this.props;
-    const { value } = this.state;
+var time = moment(date).format('hh:mm:ss')
 
+
+class LiveScore extends React.Component{
+    constructor(props){
+      super(props);
+      this.state={
+        fixtures:[]
+      };
+
+    }
+   
+
+    componentDidMount(){
+      axios.get("http://localhost:8080/cricket-tournament/fixtures")
+          .then(response => response.data)
+          .then((data) => {
+            this.setState({fixtures:data});
+          });
+    }
+
+  render(){
+    const {classes} = this.props;
     return (
-      <div className={classes.root}>
+      <Container>
        
-          <Container>
-            <Typography
-              variant="h5"
-              align="left"
-              style={{ marginTop: 20, marginLeft: 80 }}
-            >
-              ONGOING MATCHES
-            </Typography>
-            <Container>
-              <Card className={classes.node} variant="outlined">
-                <CardContent>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Team1 Vs Team2
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Series Name
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Venue
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Time
-                  </Typography>
-                </CardContent>
-                <Divider />
-                <CardActions>
-                
-                    <Button variant="contained" color="primary">
-                      ScoreCard
-                    </Button>
-                  
-                </CardActions>
-              </Card>
-            </Container>
-            <Typography
-              variant="h5"
-              align="left"
-              style={{ marginTop: 20, marginLeft: 80 }}
-            >
-              PAST MATCHES
-            </Typography>
-            <Container className={classes.stem}>
-              <Card className={classes.node} variant="outlined">
-                <CardContent>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Team1 Vs Team2
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Series Name
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Team1 won by X runs
-                  </Typography>
-                </CardContent>
-                <Divider />
-                <CardActions>
-                  <center>
-                    <Button variant="contained" color="primary" >
-                      ScoreCard
-                    </Button>
-                  </center>
-                </CardActions>
-              </Card>
-              <Card className={classes.node} variant="outlined">
-                <CardContent>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Team1 Vs Team2
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Series Name
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Team2 won by X Wickets
-                  </Typography>
-                </CardContent>
-                <Divider />
-                <CardActions>
-                  
-                    <Button variant="contained" color="primary">
-                      ScoreCard
-                    </Button>
-                  
-                </CardActions>
-              </Card>
-              <Card className={classes.node} variant="outlined">
-                <CardContent>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Team1 Vs Team2
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Series Name
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary" align="left">
-                    Team2 won by X Wickets
-                  </Typography>
-                </CardContent>
-                <Divider />
-                <CardActions>
-                  <center>
-                    <Button variant="contained" color="primary">
-                      ScoreCard
-                    </Button>
-                  </center>
-                </CardActions>
-              </Card>
-            </Container>
-          </Container>
-     
+    <Typography variant="h5" align="left" style={{marginTop:20, marginLeft: 80}} >Ongoing Match </Typography> 
+        {this.state.fixtures.map((fixture) => {if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time<fixture.fixture_end_time) 
+        {
+        return(
+         
+          //alert(time,fixture.fixture_time);
+          <div>
+              <Card className = {classes.root} variant="outlined">
+              <CardContent>
+              <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
+              <Divider />
+              <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
+              <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
+              <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
+              <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
+              <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
+              
+               </CardContent>
+            <Divider />
+            <CardActions>
+              <Button variant="contained" color="primary" >View ScoreCard</Button>
+            </CardActions>
+            </Card>
+            </div>
+          );
+        }
+        {/*else{
+          return(
+            <Typography variant="h6">No live matches</Typography>
+          );
+        }*/}
+  })}
       
-      </div>
-    );
+  
+       
+      <Typography variant="h5" align="left" style={{marginTop:20, marginLeft: 80}} >Past Matches</Typography> 
+        
+     {this.state.fixtures.map((fixture) => {if (moment(todayDate).isAfter(fixture.fixture_date)) 
+        {
+        return(
+        <div className={classes.node}>
+               
+            <Card className={classes.root} variant="outlined">
+              <CardContent>
+              <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
+              <Divider />
+              <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
+              <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
+              <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
+              <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
+              <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
+              </CardContent>
+            <Divider />
+            <CardActions>
+              <Button variant="contained" color="primary">View ScoreCard</Button>
+            </CardActions>
+            </Card>
+          
+        </div>
+  
+        );
+      }
+     }
+    )
   }
+    
+    </Container> 
+  );
+}
 }
 
-SimpleTabs.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
-export default withStyles(styles)(SimpleTabs);
+
+export default withStyles(useStyles)(LiveScore);
+
