@@ -232,7 +232,7 @@ getBowlingStats(){
                 })
                 this.setState({bowler_wickets:sum3})
                console.log("sum2",sum2,"sum1",sum1)
-                this.setState({econ:(sum2/sum1)})
+                this.setState({econ:(sum2/sum1).toFixed(2)})
             })
             
         }

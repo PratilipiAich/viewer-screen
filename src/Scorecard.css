@@ -9,7 +9,7 @@
 .team_name{
     margin-left: 80px;
     margin-right: 80px;
-    margin-bottom: 20px ;
+    width: 1300px;
 }
 .table_div1{
     
@@ -19,7 +19,7 @@
 .table_div2{
     
     float:left;
-  margin-left: 122px;
+    margin-left: 45px;
 
 }
 .header_img{
@@ -62,10 +62,11 @@ h2{
     margin: 0px 0px;
 }
 .back{
-    right: 0;
-  bottom: 0;
-  margin-top: 10px; 
-}
+    left: 0;
+     bottom: 0;
+     float : right;
+     clear: left;
+   }
 .cont{
     position: relative;
 

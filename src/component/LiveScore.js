@@ -44,7 +44,7 @@ const useStyles = theme => ({
 var date = new Date();
 var todayDate = moment(date).format('YYYY-MM-DD')
 
-var time = moment(date).format('hh:mm:ss')
+var time = moment(date).format('HH:mm:ss')
 
 
 class LiveScore extends React.Component{
@@ -87,10 +87,10 @@ class LiveScore extends React.Component{
               <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
               <Divider />
               <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
+              <Typography variant="body1" align="center" color="textSecondary">Series: {fixture.series_name}  </Typography>
+              <Typography variant="body1" align="center" color="textSecondary">Venue: {fixture.venue}  </Typography>
+              <Typography variant="body1" align="center" color="textSecondary">Date: {fixture.fixture_date}</Typography>
+              <Typography variant="body1" align="center" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
               
                </CardContent>
             <Divider />
@@ -122,10 +122,10 @@ class LiveScore extends React.Component{
               <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
               <Divider />
               <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
+              <Typography variant="body1" align="center" color="textSecondary">Series: {fixture.series_name}  </Typography>
+              <Typography variant="body1" align="center" color="textSecondary">Venue: {fixture.venue}  </Typography>
+              <Typography variant="body1" align="center" color="textSecondary">Date: {fixture.fixture_date}</Typography>
+              <Typography variant="body1" align="center" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
               </CardContent>
             <Divider />
             <CardActions>
