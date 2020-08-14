@@ -92,9 +92,7 @@ class UpcomingFixtures extends React.Component{
               <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
                </CardContent>
             <Divider />
-            <CardActions>
-            <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)} >View ScoreCard</Button>
-            </CardActions>
+            
             </Card>
             </div>
           );

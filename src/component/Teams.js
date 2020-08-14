@@ -12,14 +12,13 @@ import India from '../assests/Flags/Indian.png'
 
 const styles = {
   card: {
-    width: 400,
+    width: 200,
     backgroundColor : "#e3f2fd",
     color : "black"
   },
   node: {
     display: "flex",
     float: "left",
-
   },
   media: {
     objectFit: 'cover',
