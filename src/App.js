@@ -5,9 +5,10 @@ import {BrowserRouter as Router,Route} from "react-router-dom"
 import Header from './component/Header'
 import Navbar from './component/Navbar';
 import Teams from './component/Teams'
-import TeamWisePlayer from './component/TeamWisePlayer'
+import TeamWisePlayer from './component/TeamWisePlayers'
 
-
+import PlayerDisplay from './component/PlayerDisplay';
+import ScoreCard from './component/ScoreCard';
 
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
       <Navbar style={{padding : 0 }}/>
           <Route path="/viewer/LiveScore" component={LiveScore} />
           <Route path="/viewer/Teams" component={Teams} />
-          <Route path="/viewer/TeamWisePlayer" component={TeamWisePlayer} />
-
+          <Route path="/viewer/TeamWisePlayers/:id" component={TeamWisePlayer} />
+          <Route path="/viewer/Player/:id" component={PlayerDisplay} />
+          <Route path="/viewer/ScoreCard/:id" component={ScoreCard} />
         </Router>
         
    

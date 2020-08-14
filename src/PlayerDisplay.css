@@ -1,0 +1,36 @@
+.PlayerDisplay{
+    
+    width:50%;
+    text-align: left;
+    
+}
+.align_left{
+    text-align: left;
+    float:left;
+}
+
+    .avatar {
+        vertical-align: middle;
+        width: 150px;
+        height: 170px;
+        margin-left: 100px;
+      }
+.avatar_img{
+    float:left;
+    margin-right: 130px;
+}
+.stats{
+    clear:both;
+
+}
+.change_font{
+    color:rgb(165, 25, 25);
+}
+.both_tables{
+    width:80%;
+   
+}
+.teamplayers{
+    margin-left: "50px";
+
+}
