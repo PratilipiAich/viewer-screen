@@ -6,7 +6,6 @@ import Header from './component/Header'
 import Navbar from './component/Navbar';
 import Teams from './component/Teams'
 import TeamWisePlayer from './component/TeamWisePlayers'
-
 import PlayerDisplay from './component/PlayerDisplay';
 import ScoreCard from './component/ScoreCard';
 

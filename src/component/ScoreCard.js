@@ -3,13 +3,9 @@ import React, { Component } from 'react';
 import ReactTable from "react-table-6"; 
 import 'react-table-6/react-table.css'
 import '../Scorecard.css'
-
-
-
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';

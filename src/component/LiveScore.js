@@ -89,10 +89,7 @@ class LiveScore extends React.Component{
               <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
               <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
               <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
-              <Typography variant="body1" align="center" color="textSecondary">Series: {fixture.series_name}  </Typography>
-              <Typography variant="body1" align="center" color="textSecondary">Venue: {fixture.venue}  </Typography>
-              <Typography variant="body1" align="center" color="textSecondary">Date: {fixture.fixture_date}</Typography>
-              <Typography variant="body1" align="center" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
+              
 
               
                </CardContent>
@@ -133,11 +130,6 @@ class LiveScore extends React.Component{
               <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
               <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
               <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
-
-              <Typography variant="body1" align="center" color="textSecondary">Series: {fixture.series_name}  </Typography>
-              <Typography variant="body1" align="center" color="textSecondary">Venue: {fixture.venue}  </Typography>
-              <Typography variant="body1" align="center" color="textSecondary">Date: {fixture.fixture_date}</Typography>
-              <Typography variant="body1" align="center" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
 
               </CardContent>
             <Divider />
