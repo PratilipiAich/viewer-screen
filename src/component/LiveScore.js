@@ -14,7 +14,7 @@ import moment from 'moment';
 const useStyles = theme => ({
   root: {
     width: 300,
-    height:'auto',
+    height:400,
     marginLeft:100,
     marginTop:20,
     '& > *': {
@@ -78,7 +78,7 @@ class LiveScore extends React.Component{
         return(
          
           //alert(time,fixture.fixture_time);
-          <div>
+          <div className={classes.node}>
               <Card className = {classes.root} variant="outlined">
               <CardContent>
               <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
@@ -89,9 +89,12 @@ class LiveScore extends React.Component{
               <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
               <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
               <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
+<<<<<<< HEAD
               
 
               
+=======
+>>>>>>> 607321eebdba78db2bd56409cd58b0a09d6396fe
                </CardContent>
             <Divider />
             <CardActions>
@@ -130,7 +133,10 @@ class LiveScore extends React.Component{
               <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
               <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
               <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 607321eebdba78db2bd56409cd58b0a09d6396fe
               </CardContent>
             <Divider />
             <CardActions>

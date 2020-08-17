@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import LiveScore from './component/LiveScore'
+import UpcomingFixtures from './component/UpcomingFixtures'
 import {BrowserRouter as Router,Route} from "react-router-dom"
 import Header from './component/Header'
 import Navbar from './component/Navbar';
@@ -16,6 +17,7 @@ function App() {
       <Header aria-labelledby="cricket association for the blind in india" />
       <Navbar style={{padding : 0 }}/>
           <Route path="/viewer/LiveScore" component={LiveScore} />
+          <Route path="/viewer/UpcomingFixtures" component={UpcomingFixtures} />
           <Route path="/viewer/Teams" component={Teams} />
           <Route path="/viewer/TeamWisePlayers/:id" component={TeamWisePlayer} />
           <Route path="/viewer/Player/:id" component={PlayerDisplay} />

@@ -12,7 +12,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 
 import FixtureDataService from '../Service/FixtureDataService';
-import ScorecardDataService from '../Service/ScorecardDataService';
+import ScorecardDataService from '../Service/ScoreCardDataService';
 
 
 function TabContainer(props) {

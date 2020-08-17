@@ -17,6 +17,10 @@ const styles = {
     backgroundColor : "#e3f2fd",
     color : "black"
   },
+  node: {
+    display: "flex",
+    float: "left",
+  },
   media: {
     objectFit: 'cover',
 },
@@ -53,12 +57,16 @@ class Teams extends React.Component {
 render(){
   const { classes } = this.props;
   return (
-        <Container align = "center">
+        <Container align = "center" >
         <Typography  aria-labelledby = "Teams" align = "center" gutterBottom variant="h5" component="h1" style={{marginTop : 50}}>TEAMS</Typography>
         <Divider/>
         <br></br>
         <br></br>
+<<<<<<< HEAD
         <Grid container spacing = {4} >
+=======
+        <Container align = "center" className={classes.node} >
+>>>>>>> 607321eebdba78db2bd56409cd58b0a09d6396fe
         {this.state.teams.map((team) =>{
          //  if(team.tname === "Australia"){
             return( 
@@ -82,7 +90,11 @@ render(){
         
            
            
+<<<<<<< HEAD
        
+=======
+           </Container>
+>>>>>>> 607321eebdba78db2bd56409cd58b0a09d6396fe
     
         </Container>
         );

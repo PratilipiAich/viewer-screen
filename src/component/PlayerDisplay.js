@@ -11,7 +11,7 @@ import '../PlayerDisplay.css';
 
 import TeamDataService from '../Service/TeamDataService';
 import PlayerDataService from '../Service/PlayerDataService';
-import ScoreCardDataService from '../Service/ScorecardDataService';
+import ScoreCardDataService from '../Service/ScoreCardDataService';
 import Male from '../assests/img_avatar.png';
 import player from '../assests/player.png'; 
 import player2 from '../assests/player2.png'; 
