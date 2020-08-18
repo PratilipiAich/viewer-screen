@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import Tab from '@material-ui/core/Tab';
 
 const styles = {
   root: {
@@ -14,20 +15,20 @@ const styles = {
   },
  
 };
-
+handleChange = (event, value) => {
+  this.setState({ value });
+};
 class Navbar extends React.Component {
   render(){
   const { classes } = this.props;
   return (
     <div className={classes.root}>
       <AppBar position="static" style={{ marginTop: 0 }}>
-        <Toolbar  style={{ marginTop: 0 }}>
-          <Button style={{ marginRight: 50 }} color="inherit" aria-labelledby="Live score" href = '/viewer/LiveScore'>LIVE SCORE</Button>
-          <Button style={{ marginRight: 50 }} color="inherit" aria-labelledby="teams" href = '/viewer/Teams'>TEAMS</Button>
-          <Button style={{ marginRight: 50 }} color="inherit" aria-labelledby="series" href = '/viewer/Series'>SERIES</Button>
-          <Button style={{ marginRight: 50 }} color="inherit" aria-labelledby="upcoming fixtures" href = '/viewer/UpcomingFixtures'>UPCOMING FIXTURES</Button>
-          <Button style={{ marginRight: 50 }} color="inherit" aria-labelledby="donate" href = 'https://www.samarthanam.org/donate/'>DONATE</Button>
-        </Toolbar>
+      <Tabs value={value} onChange={this.handleChange}>
+            <Tab label="Item One" />
+            <Tab label="Item Two" />
+            <Tab label="Item Three" />
+          </Tabs>
       </AppBar>
     </div>
   );

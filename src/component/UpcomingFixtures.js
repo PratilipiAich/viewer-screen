@@ -12,13 +12,13 @@ import moment from 'moment';
 
 const useStyles = theme => ({
   root: {
-    width: 400,
-    height:'auto',
+    width: 250,
+    height: 175,
     marginLeft:100,
-    marginTop:20,
-    '& > *': {
-      marginTop: theme.spacing(2),
-    },
+    marginTop: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(4),
+    
   },
   node: {
     display: "flex",
@@ -42,7 +42,7 @@ const useStyles = theme => ({
 var date = new Date();
 var todayDate = moment(date).format('YYYY-MM-DD')
 
-var time = moment(date).format('hh:mm:ss')
+var time = moment(date).format('HH:mm:ss')
 
 
 class UpcomingFixtures extends React.Component{
@@ -63,11 +63,9 @@ class UpcomingFixtures extends React.Component{
             this.setState({fixtures:data});
           });
     }
-    handleSelect = e => {
-       
-      this.props.history.push(`/viewer/ScoreCard/${e}`)
+    
       
-  }
+  
   render(){
     const {classes} = this.props;
     return (
@@ -80,20 +78,17 @@ class UpcomingFixtures extends React.Component{
          
           //alert(time,fixture.fixture_time);
           <div className={classes.node}>
-              <Card className = {classes.root} variant="outlined">
+              
+               <Card className = {classes.root} variant="outlined">
               <CardContent>
-              <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
+              <Typography  variant="h5" color="primary" align="center">{fixture.team1} vs {fixture.team2}</Typography>
               <Divider />
-              <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
-              <br />
-              <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
-               </CardContent>
-            <Divider />
-            
+              <Typography variant="body1" align="center" color="textSecondary">{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+              </CardContent>
+           
+           
             </Card>
+          
             </div>
           );
         }

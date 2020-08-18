@@ -13,13 +13,12 @@ import moment from 'moment';
 
 const useStyles = theme => ({
   root: {
-    width: 300,
-    height:400,
-    marginLeft:100,
-    marginTop:20,
-    '& > *': {
-      marginTop: theme.spacing(2),
-    },
+    width: 250,
+    height: 225,   
+    marginTop: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(4),
+    
   },
   node: {
     display: "flex",
@@ -41,14 +40,24 @@ const useStyles = theme => ({
 
 var date = new Date();
 var todayDate = moment(date).format('YYYY-MM-DD')
-
 var time = moment(date).format('HH:mm:ss')
+
+
+/*function Message(props) 
+{ 
+    if (props.Ongoing) 
+        return <h5>On Going Matches</h5>; 
+    else
+        return null; 
+} 
+*/
 
 class LiveScore extends React.Component{
     constructor(props){
       super(props);
       this.state={
-        fixtures:[]
+        fixtures:[],
+      Ongoing: false
       };
 
     }
@@ -72,27 +81,22 @@ class LiveScore extends React.Component{
     return (
       <Container>
        
-    <Typography variant="h5" align="left" style={{marginTop:20, marginLeft: 80}} >Ongoing Match </Typography> 
+    <Typography variant="h5" align="left" >Ongoing Match </Typography> 
         {this.state.fixtures.map((fixture) => {if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time<fixture.fixture_end_time) 
         {
         return(
          
           //alert(time,fixture.fixture_time);
           <div className={classes.node}>
-              <Card className = {classes.root} variant="outlined">
+               <Card className = {classes.root} variant="outlined">
               <CardContent>
-              <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
+              <Typography variant="h5" color="primary" align="center">{fixture.team1} vs {fixture.team2}</Typography>
               <Divider />
-              <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
-              <br />
-              <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
-               </CardContent>
+              <Typography variant="body1" align="center" color="textSecondary">{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+              </CardContent>
             <Divider />
             <CardActions>
-              <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)} >View ScoreCard</Button>
+            <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
             </CardActions>
             </Card>
             </div>
@@ -105,9 +109,9 @@ class LiveScore extends React.Component{
         }*/}
   })}
       
-  
+  <br />
        
-      <Typography variant="h5" align="left" style={{marginTop:20, marginLeft: 80}} >Past Matches</Typography> 
+      <Typography variant="h5" align="left" >Past Matches</Typography> 
         
      {this.state.fixtures.map((fixture) => {if (moment(todayDate).isAfter(fixture.fixture_date)) 
         {
@@ -116,21 +120,15 @@ class LiveScore extends React.Component{
          
         <div className={classes.node}>
                
-            <Card className={classes.root} variant="outlined">
+               <Card className = {classes.root} variant="outlined">
               <CardContent>
-              <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
+              <Typography variant="h5" color="primary" align="center">{fixture.team1} vs {fixture.team2}</Typography>
               <Divider />
-              <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
-
-              <br />
-              <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
-              <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
+              <Typography variant="body1" align="center" color="textSecondary">{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
               </CardContent>
             <Divider />
             <CardActions>
-              <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
+            <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
             </CardActions>
             </Card>
           
@@ -145,22 +143,17 @@ class LiveScore extends React.Component{
             { 
               return(<div className={classes.node}>
                
-                <Card className={classes.root} variant="outlined">
-                  <CardContent>
-                  <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
-                  <Divider />
-                  <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
-                  <br />
-                  <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
-                  <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
-                  <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
-                  <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
-                  </CardContent>
-                <Divider />
-                <CardActions>
-                  <Button variant="contained" color="primary">View ScoreCard</Button>
-                </CardActions>
-                </Card>
+               <Card className = {classes.root} variant="outlined">
+              <CardContent>
+              <Typography variant="h5" color="primary" align="center">{fixture.team1} vs {fixture.team2}</Typography>
+              <Divider />
+              <Typography variant="body1" align="center" color="textSecondary">{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+              </CardContent>
+            <Divider />
+            <CardActions>
+            <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
+            </CardActions>
+            </Card>
               
             </div>
              );
