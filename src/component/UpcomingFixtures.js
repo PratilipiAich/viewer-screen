@@ -1,9 +1,9 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+//import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Divider, Container } from '@material-ui/core';
 import axios from 'axios'
@@ -13,7 +13,8 @@ import moment from 'moment';
 const useStyles = theme => ({
   root: {
     width: 250,
-    height: 175,
+    height: 250,
+    backgroundColor : "#EDEEEE",
     marginLeft:100,
     marginTop: theme.spacing(2),
     marginRight: theme.spacing(2),
@@ -79,14 +80,17 @@ class UpcomingFixtures extends React.Component{
           //alert(time,fixture.fixture_time);
           <div className={classes.node}>
               
-               <Card className = {classes.root} variant="outlined">
+              <Card className = {classes.root} variant="outlined">
               <CardContent>
-              <Typography  variant="h5" color="primary" align="center">{fixture.team1} vs {fixture.team2}</Typography>
+              <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
+                {fixture.team1} <br />
+
+                <span style={{color: "red"}}> vs </span>
+                 <br /> {fixture.team2}
+                 <br /></Typography>
               <Divider />
-              <Typography variant="body1" align="center" color="textSecondary">{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
-              </CardContent>
-           
-           
+              <Typography variant="body1" align="left" color="textSecondary" style={{fontSize: "15px"}}>{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+             </CardContent>
             </Card>
           
             </div>

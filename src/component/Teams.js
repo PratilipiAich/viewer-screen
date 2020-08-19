@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from "@material-ui/core/CardMedia";
 import Typography from '@material-ui/core/Typography';
 import {Container,Grid,Divider, CardActionArea} from '@material-ui/core/';
 import axios from 'axios';
-import Australia from '../assests/Flags/australia.jpg'
-import India from '../assests/Flags/Indian.png'
 
 const styles = {
   card: {
-    width: 200,
+    width: 385,
     backgroundColor : "#e3f2fd",
     color : "black"
   },
@@ -22,8 +19,7 @@ const styles = {
   },
   media: {
     objectFit: 'cover',
-},
- 
+},  
 };
 
 class Teams extends React.Component {
@@ -56,85 +52,39 @@ render(){
         <Divider/>
         <br></br>
         <br></br>
-        <Container align = "center" className={classes.node} >
+
+        <Grid container spacing = {4} >
+
+        
+
         {this.state.teams.map((team) =>{
-           if(team.tname === "Australia"){
-            return(  
-            <Grid container spacing = {8}  alignItems="flex-start" justify = "center" direction = "direction-xs-row" alignContent = "flex-start">
-            <Grid item xs = {4} sm = {6}>
-            
+         //  if(team.tname === "Australia"){
+            return( 
+                <Grid item> 
+            <div className={classes.node}>
             <Card className={classes.card} align = "center">
             <CardActionArea onClick={() => this.handleTeamPlayerDisplay(team.team_id)}>
                 <CardContent>
-                <CardMedia
-                component="img"
-                className={classes.media}
-                height="200"
-                image= {Australia}
-                aria-label = "Team Australia"
-                 />
                 <Typography gutterBottom variant="h5" component="h2" align = "center">
-                  Team {team.tname}
+                   {team.tname}
                 </Typography>
+                <Typography align = "center">{team.tcountry}</Typography>
+            
                 </CardContent>
             </CardActionArea>
             </Card>
-      
-        </Grid>
-        </Grid>
-            )}
-            if(team.tname === "India"){
-                console.log(team)
-                return(  
-                <Grid container spacing = {8}  alignItems="flex-start" justify = "center" direction = "direction-xs-row" alignContent = "flex-start">
-                <Grid item xs = {4} sm = {6}>
-                
-                <Card className={classes.card} align = "center">
-                <CardActionArea onClick={() => this.handleTeamPlayerDisplay(team.team_id)}>
-                    <CardContent>
-                    <CardMedia
-                    component="img"
-                    className={classes.media}
-                    height="200"
-                    image= {India}
-                    aria-label = "Team India"
-                     />
-                    <Typography gutterBottom variant="h5" component="h2" align = "center">
-                      Team {team.tname}
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-                </Card>
-          
-            </Grid>
-            </Grid>
-                )}
-            else{
-                return(  
-                    <Grid container spacing = {8}  alignItems="flex-start" justify = "center" direction = "direction-xs-row" alignContent = "flex-start">
-                    <Grid item xs = {4} sm = {6}>
-                    
-                    <Card className={classes.card} align = "center">
-                    <CardActionArea onClick={() => this.handleTeamPlayerDisplay(team.team_id)}>
-                        <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2" align = "center">
-                          Team {team.tname}
-                        </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    </Card>
-              
-                </Grid>
-                </Grid>
-                    )
-            }
+      </div>
+      </Grid>
+         ) })}
+         
         
-        
-        })}
            
+           
+        
+       
 
            
-           </Container>
+           </Grid>
     
         </Container>
         );

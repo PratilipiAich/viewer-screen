@@ -3,24 +3,25 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-//import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Divider, Container } from '@material-ui/core';
-//import MatchSelectionService from "../service/MatchSelectionService"
-import axios from 'axios'
+import axios from 'axios';
 import moment from 'moment';
+import {Grid} from '@material-ui/core/';
 
 const useStyles = theme => ({
   root: {
-    width: 250,
-    height: 225,   
-    marginTop: theme.spacing(2),
-    marginRight: theme.spacing(2),
-    marginLeft: theme.spacing(4),
-    
+   width: 225,
+   height: 250,  
+   backgroundColor : "#EDEEEE",
+   color : "black", 
+   marginTop: theme.spacing(2),
+   //marginRight: theme.spacing(2),
+   padding: theme.spacing(2),
   },
   node: {
+    padding: theme.spacing(2),
     display: "flex",
     float: "left"
   },
@@ -43,21 +44,11 @@ var todayDate = moment(date).format('YYYY-MM-DD')
 var time = moment(date).format('HH:mm:ss')
 
 
-/*function Message(props) 
-{ 
-    if (props.Ongoing) 
-        return <h5>On Going Matches</h5>; 
-    else
-        return null; 
-} 
-*/
-
 class LiveScore extends React.Component{
     constructor(props){
       super(props);
       this.state={
         fixtures:[],
-      Ongoing: false
       };
 
     }
@@ -79,27 +70,36 @@ class LiveScore extends React.Component{
   render(){
     const {classes} = this.props;
     return (
-      <Container>
-       
-    <Typography variant="h5" align="left" >Ongoing Match </Typography> 
+      <Container style={{marginLeft: 100, marginRight: 100}}>
+               
         {this.state.fixtures.map((fixture) => {if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time<fixture.fixture_end_time) 
-        {
+       {
         return(
-         
-          //alert(time,fixture.fixture_time);
+        //alert(time,fixture.fixture_time);
+        <Grid container spacing = {4} >
+           <Grid item >     
+           <Typography variant="h5" style={{marginTop:20}} >Ongoing Match </Typography>
           <div className={classes.node}>
+            
+               <br />
                <Card className = {classes.root} variant="outlined">
               <CardContent>
-              <Typography variant="h5" color="primary" align="center">{fixture.team1} vs {fixture.team2}</Typography>
+              <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
+                {fixture.team1} <br />
+               <span style={{color: "red"}}> vs </span>
+                 <br /> {fixture.team2}
+                 <br /></Typography>
               <Divider />
-              <Typography variant="body1" align="center" color="textSecondary">{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
-              </CardContent>
+              <Typography variant="body1" align="left"  style={{fontSize: "14px"}}>{fixture.description} at {fixture.venue}<br /> scheduled on {fixture.fixture_date}, {fixture.fixture_start_time}</Typography>
+             </CardContent>
             <Divider />
             <CardActions>
             <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
             </CardActions>
             </Card>
-            </div>
+        </div>
+        </Grid>
+        </Grid>
           );
         }
         {/*else{
@@ -108,32 +108,39 @@ class LiveScore extends React.Component{
           );
         }*/}
   })}
-      
-  <br />
-       
-      <Typography variant="h5" align="left" >Past Matches</Typography> 
+      <br />
+      <br />
+      <Typography variant="h5" style={{marginTop:20}}>Past Matches</Typography> 
         
      {this.state.fixtures.map((fixture) => {if (moment(todayDate).isAfter(fixture.fixture_date)) 
         {
         
         return(
-         
-        <div className={classes.node}>
-               
+          <div className={classes.node}>
+          <Grid container spacing = {4} >
+          <Grid item > 
+      
+               <br />
                <Card className = {classes.root} variant="outlined">
               <CardContent>
-              <Typography variant="h5" color="primary" align="center">{fixture.team1} vs {fixture.team2}</Typography>
+              <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
+                {fixture.team1} <br />
+
+                <span style={{color: "red"}}> vs </span>
+                 <br /> {fixture.team2}
+                 <br /></Typography>
               <Divider />
-              <Typography variant="body1" align="center" color="textSecondary">{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
-              </CardContent>
+              <Typography variant="body1" align="left" style={{fontSize: "14px"}}>{fixture.description} at {fixture.venue} <br />scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+             </CardContent>
             <Divider />
             <CardActions>
             <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
             </CardActions>
             </Card>
-          
+       
+        </Grid>
+        </Grid>
         </div>
-            
         );
       }
      }
@@ -141,27 +148,39 @@ class LiveScore extends React.Component{
   }
    {this.state.fixtures.map((fixture) =>{if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time>fixture.fixture_end_time) 
             { 
-              return(<div className={classes.node}>
-               
-               <Card className = {classes.root} variant="outlined">
-              <CardContent>
-              <Typography variant="h5" color="primary" align="center">{fixture.team1} vs {fixture.team2}</Typography>
-              <Divider />
-              <Typography variant="body1" align="center" color="textSecondary">{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
-              </CardContent>
-            <Divider />
-            <CardActions>
-            <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
-            </CardActions>
-            </Card>
-              
-            </div>
+              return(
+                <div className={classes.node}>
+                <Grid container spacing = {4} >
+                <Grid item > 
+            
+                     <br />
+                     <Card className = {classes.root} variant="outlined">
+                    <CardContent>
+                    <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
+                      {fixture.team1} <br />
+      
+                      <span style={{color: "red"}}> vs </span>
+                       <br /> {fixture.team2}
+                       <br /></Typography>
+                    <Divider />
+                    <Typography variant="body1" align="left" style={{fontSize: "14px"}}>{fixture.description} at {fixture.venue} <br />scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+                   </CardContent>
+                  <Divider />
+                  <CardActions>
+                  <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
+                  </CardActions>
+                  </Card>
+             
+              </Grid>
+              </Grid>
+              </div>
              );
             }
            }
           )
         }
-        
+    
+  
 
     </Container> 
 
@@ -170,6 +189,3 @@ class LiveScore extends React.Component{
 }
 
 export default withStyles(useStyles)(LiveScore);
-
-
-
