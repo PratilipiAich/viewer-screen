@@ -20,10 +20,11 @@ const CustomTableCell = withStyles(theme => ({
     head: {
       backgroundColor: "white",
       color: "black",
+      fontSize : 15
     },
     body: {
         color:"blue",
-      fontSize : 14,
+      fontSize : 15,
     },
   }))(TableCell);
 
@@ -263,9 +264,9 @@ getBowlingStats(){
                   Date of birth :<i className="change_font"> {this.state.player_dob}</i><br/><br/>
                   Nationality :<i className="change_font">  {this.state.nationality}</i> <br/><br/>
                   Category : <i className="change_font"> {this.state.category}</i><br/><br/>
-                  Player batting style :<i className="change_font">  {this.state.player_batting_style}</i><br/><br/>
-                  Player bowling style :<i className="change_font">  {this.state.player_bowling_style}</i><br/><br/>
-                  Player role :<i className="change_font">  {this.state.player_role}</i><br/><br/>
+                  Player batting style :<i className="change_font">  {this.state.player_batting_style.charAt(0).toUpperCase() + this.state.player_batting_style.slice(1)}</i><br/><br/>
+                  Player bowling style :<i className="change_font">  {this.state.player_bowling_style.charAt(0).toUpperCase()+ this.state.player_bowling_style.slice(1)}</i><br/><br/>
+                  Player role :<i className="change_font">  {this.state.player_role.charAt(0).toUpperCase() + this.state.player_role.slice(1)}</i><br/><br/>
                   
                 </div>
                 <div className="avatar_img">

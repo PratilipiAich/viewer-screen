@@ -11,11 +11,10 @@ import { Divider, Container } from '@material-ui/core';
 import axios from 'axios'
 import moment from 'moment';
 
-
 const useStyles = theme => ({
   root: {
-    width: 400,
-    height:'auto',
+    width: 300,
+    height:400,
     marginLeft:100,
     marginTop:20,
     '& > *': {
@@ -40,12 +39,10 @@ const useStyles = theme => ({
 
 });
 
-
 var date = new Date();
 var todayDate = moment(date).format('YYYY-MM-DD')
 
-var time = moment(date).format('hh:mm:ss')
-
+var time = moment(date).format('HH:mm:ss')
 
 class LiveScore extends React.Component{
     constructor(props){
@@ -81,17 +78,17 @@ class LiveScore extends React.Component{
         return(
          
           //alert(time,fixture.fixture_time);
-          <div>
+          <div className={classes.node}>
               <Card className = {classes.root} variant="outlined">
               <CardContent>
               <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
               <Divider />
               <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
+              <br />
               <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
               <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
               <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
               <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
-              
                </CardContent>
             <Divider />
             <CardActions>
@@ -110,11 +107,13 @@ class LiveScore extends React.Component{
       
   
        
-      <Typography variant="h5" align="left" style={{marginTop:20, marginLeft: 80}} >Past Matches</Typography> 
+      <Typography variant="h5" align="left" style={{marginTop:20, marginLeft: 80,clear:"left"}} >Past Matches</Typography> 
         
      {this.state.fixtures.map((fixture) => {if (moment(todayDate).isAfter(fixture.fixture_date)) 
         {
+        
         return(
+         
         <div className={classes.node}>
                
             <Card className={classes.root} variant="outlined">
@@ -122,6 +121,8 @@ class LiveScore extends React.Component{
               <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
               <Divider />
               <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
+
+              <br />
               <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
               <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
               <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
@@ -134,19 +135,46 @@ class LiveScore extends React.Component{
             </Card>
           
         </div>
-  
+            
         );
       }
      }
     )
   }
-    
+   {this.state.fixtures.map((fixture) =>{if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time>fixture.fixture_end_time) 
+            { 
+              return(<div className={classes.node}>
+               
+                <Card className={classes.root} variant="outlined">
+                  <CardContent>
+                  <Typography variant="h5" align="center" color="primary">{fixture.team1} vs {fixture.team2}</Typography>
+                  <Divider />
+                  <Typography variant="body1" align="center" color="textSecondary"> {fixture.description} </Typography>
+                  <br />
+                  <Typography variant="body1" align="left" color="textSecondary">Series: {fixture.series_name}  </Typography>
+                  <Typography variant="body1" align="left" color="textSecondary">Venue: {fixture.venue}  </Typography>
+                  <Typography variant="body1" align="left" color="textSecondary">Date: {fixture.fixture_date}</Typography>
+                  <Typography variant="body1" align="left" color="textSecondary">Time: {fixture.fixture_start_time}</Typography>
+                  </CardContent>
+                <Divider />
+                <CardActions>
+                  <Button variant="contained" color="primary">View ScoreCard</Button>
+                </CardActions>
+                </Card>
+              
+            </div>
+             );
+            }
+           }
+          )
+        }
+        
+
     </Container> 
+
   );
 }
 }
-
-
 
 export default withStyles(useStyles)(LiveScore);
 

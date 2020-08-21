@@ -20,7 +20,7 @@ class Navbar extends React.Component {
   const { classes } = this.props;
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ marginTop: 0 }}>
+      <AppBar position="static" style={{ marginTop: 0}}>
         <Toolbar  style={{ marginTop: 0 }}>
           <Button style={{ marginRight: 50 }} color="inherit" aria-labelledby="Live score" href = '/viewer/LiveScore'>LIVE SCORE</Button>
           <Button style={{ marginRight: 50 }} color="inherit" aria-labelledby="teams" href = '/viewer/Teams'>TEAMS</Button>
