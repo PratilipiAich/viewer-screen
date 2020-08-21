@@ -1,6 +1,5 @@
 .current_score{
     background-color:#D3D3D3;
-   
     text-align: center;
     padding-top: 6px;
     padding-bottom: 6px;
@@ -9,8 +8,7 @@
 .team_name{
     margin-left: 80px;
     margin-right: 80px;
-    width:1300px;
-    
+    width: 1300px;
 }
 .table_div1{
     
@@ -20,7 +18,7 @@
 .table_div2{
     
     float:left;
-  margin-left: 45px;
+    margin-left: 45px;
 
 }
 .header_img{
@@ -34,7 +32,9 @@
     width:100%;
     height:60px;
     margin-top: 0px;
-   
+   justify-content: center;
+   margin-left: 40px; 
+  
 }
 .stadium{
     float: left;
@@ -63,14 +63,11 @@ h2{
     margin: 0px 0px;
 }
 .back{
-   margin-top: 50px;
-   left:0;
-   bottom:0;
-   clear:left;
-   float:right;
-
-  
-}
+    left: 0;
+     bottom: 0;
+     float : right;
+     clear: left;
+   }
 .cont{
     position: relative;
 

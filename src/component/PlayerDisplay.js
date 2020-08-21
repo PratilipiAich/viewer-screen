@@ -11,7 +11,7 @@ import '../PlayerDisplay.css';
 
 import TeamDataService from '../Service/TeamDataService';
 import PlayerDataService from '../Service/PlayerDataService';
-import ScoreCardDataService from '../Service/ScorecardDataService';
+import ScoreCardDataService from '../Service/ScoreCardDataService';
 import Male from '../assests/img_avatar.png';
 import player from '../assests/player.png'; 
 import player2 from '../assests/player2.png'; 
@@ -233,7 +233,7 @@ getBowlingStats(){
                 })
                 this.setState({bowler_wickets:sum3})
                console.log("sum2",sum2,"sum1",sum1)
-                this.setState({econ:(sum2/sum1)})
+                this.setState({econ:(sum2/sum1).toFixed(2)})
             })
             
         }

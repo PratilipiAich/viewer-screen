@@ -5,22 +5,29 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {Container,Grid,Divider, CardActionArea} from '@material-ui/core/';
-import axios from 'axios'
+import axios from 'axios';
 
 const styles = {
   card: {
-    width: 400,
-    backgroundColor : "#3f51b5",
-    color : "white"
+    width: 370,
+    backgroundColor : "#e3f2fd",
+    color : "black"
   },
- 
+  node: {
+    display: "flex",
+    float: "left",
+  },
+  media: {
+    objectFit: 'cover',
+},  
 };
 
 class Teams extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            teams : []
+            teams : [],
+            flag_image : null
         };
     }
 
@@ -45,28 +52,39 @@ render(){
         <Divider/>
         <br></br>
         <br></br>
+
+        <Grid container spacing = {4} >
+
         
+
         {this.state.teams.map((team) =>{
-            return(  
-            <Grid container spacing = {8}  alignItems="flex-start" justify = "center" direction = "direction-xs-row" alignContent = "flex-start">
-            <Grid item xs = {4} sm = {6}>
+         //  if(team.tname === "Australia"){
+            return( 
+                <Grid item> 
+            <div className={classes.node}>
             <Card className={classes.card} align = "center">
             <CardActionArea onClick={() => this.handleTeamPlayerDisplay(team.team_id)}>
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="h2" align = "center">
-                  Team {team.tname}
+                   {team.tname}
                 </Typography>
+                <Typography align = "center">{team.tcountry}</Typography>
+            
                 </CardContent>
             </CardActionArea>
             </Card>
-        </Grid>
-        </Grid>
-
-            )})}
+      </div>
+      </Grid>
+         ) })}
+         
+        
            
+           
+        
+       
 
            
-          
+           </Grid>
     
         </Container>
         );
