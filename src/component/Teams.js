@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const styles = {
   card: {
-    width: 385,
+    width: 370,
     backgroundColor : "#e3f2fd",
     color : "black"
   },
@@ -47,7 +47,7 @@ class Teams extends React.Component {
 render(){
   const { classes } = this.props;
   return (
-        <Container align = "center" >
+        <Container align = "center">
         <Typography  aria-labelledby = "Teams" align = "center" gutterBottom variant="h5" component="h1" style={{marginTop : 50}}>TEAMS</Typography>
         <Divider/>
         <br></br>

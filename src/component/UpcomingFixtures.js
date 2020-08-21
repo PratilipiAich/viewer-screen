@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { Divider, Container } from '@material-ui/core';
 import axios from 'axios'
 import moment from 'moment';
-
+import {Grid} from '@material-ui/core/';
 
 const useStyles = theme => ({
   root: {
@@ -16,12 +16,13 @@ const useStyles = theme => ({
     height: 250,
     backgroundColor : "#EDEEEE",
     marginLeft:100,
-    marginTop: theme.spacing(2),
-    marginRight: theme.spacing(2),
-    marginLeft: theme.spacing(4),
-    
+    //marginTop: theme.spacing(2),
+   // marginRight: theme.spacing(2),
+   // marginLeft: theme.spacing(4),
+   padding: theme.spacing(2),
   },
   node: {
+    padding: theme.spacing(2),
     display: "flex",
     float: "left"
   },
@@ -70,30 +71,35 @@ class UpcomingFixtures extends React.Component{
   render(){
     const {classes} = this.props;
     return (
-      <Container>
+      <Container style={{marginLeft: 80, marginRight: 100}}>
         
-        <Typography variant="h5" align="left" style={{marginTop:20, marginLeft: 80}} >Upcoming Match </Typography> 
+        <Typography variant="h5" align="left" style={{marginTop:40, marginLeft: 100}} >Upcoming Match </Typography> 
         {this.state.fixtures.map((fixture) => {if (moment(todayDate).isBefore(fixture.fixture_date)) 
         {
         return(
          
           //alert(time,fixture.fixture_time);
           <div className={classes.node}>
-              
-              <Card className = {classes.root} variant="outlined">
-              <CardContent>
-              <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
-                {fixture.team1} <br />
-
-                <span style={{color: "red"}}> vs </span>
-                 <br /> {fixture.team2}
-                 <br /></Typography>
-              <Divider />
-              <Typography variant="body1" align="left" color="textSecondary" style={{fontSize: "15px"}}>{fixture.description} at {fixture.venue} scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
-             </CardContent>
-            </Card>
-          
-            </div>
+                <Grid container spacing = {4} >
+                <Grid item > 
+            
+                     <br />
+                     <Card className = {classes.root} variant="outlined">
+                    <CardContent>
+                    <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
+                      {fixture.team1} <br />
+      
+                      <span style={{color: "red"}}> vs </span>
+                       <br /> {fixture.team2}
+                       <br /></Typography>
+                    <Divider />
+                    <Typography variant="body1" align="left" style={{fontSize: "14px"}}>{fixture.description} at {fixture.venue} <br />scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+                   </CardContent>
+                  </Card>
+             
+              </Grid>
+              </Grid>
+              </div>
           );
         }
         {/*else{
