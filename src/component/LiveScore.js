@@ -94,9 +94,10 @@ class LiveScore extends React.Component{
         //alert(time,fixture.fixture_time);
         <div style={{marginLeft: 150, marginRight: 5}}>
           
-           
-         
-               <Card className = {classes.root} variant="outlined" boxShadow={3}>
+          <Grid container spacing = {4} >
+          <Grid item >
+         <div className={classes.node}>
+                          <Card className = {classes.root} variant="outlined" variant="elevation" elevation={5}>
               <CardContent>
               <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
                 {fixture.team1} <br />
@@ -111,8 +112,10 @@ class LiveScore extends React.Component{
             <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
             </CardActions>
             </Card>
-       
-       
+            </div>
+
+       </Grid>
+       </Grid>
         </div>
       
           );
