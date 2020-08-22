@@ -34,3 +34,13 @@
     margin-left: "50px";
 
 }
+.player_name_btn{
+    background-color: transparent;
+    border:none;
+    
+}
+.player_name_btn:active{
+    border-color:transparent;
+    outline: none;
+    
+}

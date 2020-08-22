@@ -176,6 +176,7 @@ class TeamWisePlayers extends Component {
                    
                 )
                 }
+                <br/>
                 <center>
                     <h2>Players in team {teamname}</h2>
                     <br/>
@@ -198,7 +199,7 @@ class TeamWisePlayers extends Component {
                    
                     <TableRow  style ={ index % 2? { background : "#f2f2f2" }:{ background : "white" }}  className={classes.row} >
                    
-                    <CustomTableCell align="center" tabIndex="0"  onClick={() => this.handleSelect(tp.player_id)}><a>{tp.player_first_name} {tp.player_last_name} {tp.player_initials}</a></CustomTableCell>
+                    <CustomTableCell align="center" tabIndex="0"  onClick={() => this.handleSelect(tp.player_id)}><button className="player_name_btn">{tp.player_first_name} {tp.player_last_name} {tp.player_initials}</button></CustomTableCell>
                   
                     </TableRow>
                      
@@ -217,7 +218,7 @@ class TeamWisePlayers extends Component {
    
     <TableRow  style ={ index % 2? { background : "#f2f2f2" }:{ background : "white" }}  className={classes.row} >
    
-    <CustomTableCell align="center" tabIndex="0"  onClick={() => this.handleSelect(tp.player_id)}><a>{tp.player_first_name} {tp.player_last_name} {tp.player_initials}</a></CustomTableCell>
+    <CustomTableCell align="center" tabIndex="0"  onClick={() => this.handleSelect(tp.player_id)}><button className="player_name_btn">{tp.player_first_name} {tp.player_last_name} {tp.player_initials}</button></CustomTableCell>
   
     </TableRow>
      

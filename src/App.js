@@ -15,7 +15,7 @@ function App() {
   return (     
       <Router>
       <Header aria-labelledby="cricket association for the blind in india" />
-      <Navbar style={{padding : 0 }}/>
+      <Navbar style={{position:"absolute",marginTop:"10px"}}/>
           <Route path="/viewer/LiveScore" component={LiveScore} />
           <Route path="/viewer/UpcomingFixtures" component={UpcomingFixtures} />
           <Route path="/viewer/Teams" component={Teams} />
