@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const styles = {
   card: {
-    width: 370,
+    width: 388,
     backgroundColor : "#e3f2fd",
     color : "black"
   },
@@ -52,7 +52,7 @@ render(){
         <Divider/>
         <br></br>
         <br></br>
-
+    
         <Grid container spacing = {4} >
 
         
@@ -62,7 +62,7 @@ render(){
             return( 
                 <Grid item> 
             <div className={classes.node}>
-            <Card className={classes.card} align = "center">
+            <Card className={classes.card} align = "center" variant="elevation" elevation={5}>
             <CardActionArea onClick={() => this.handleTeamPlayerDisplay(team.team_id)}>
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="h2" align = "center">
@@ -76,13 +76,6 @@ render(){
       </div>
       </Grid>
          ) })}
-         
-        
-           
-           
-        
-       
-
            
            </Grid>
     

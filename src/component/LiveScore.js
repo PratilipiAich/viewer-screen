@@ -86,7 +86,7 @@ class LiveScore extends React.Component{
     const {classes} = this.props;
     return (
       <Container >
-        {this.state.Ongoing.length>0 && <Typography variant="h5" style={{marginTop:40, marginLeft: 150}} >Ongoing Matches </Typography>}
+        {this.state.Ongoing.length>0 && <Typography variant="h5" style={{marginTop:40, marginLeft: 165}} >Ongoing Matches </Typography>}
           
         {this.state.fixtures.map((fixture) => {if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time<fixture.fixture_end_time) 
        {
@@ -97,7 +97,7 @@ class LiveScore extends React.Component{
           <Grid container spacing = {4} >
           <Grid item >
          <div className={classes.node}>
-                          <Card className = {classes.root} variant="outlined" variant="elevation" elevation={5}>
+         <Card className = {classes.root} variant="outlined" variant="elevation" elevation={5}>
               <CardContent>
               <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
                 {fixture.team1} <br />
@@ -126,7 +126,7 @@ class LiveScore extends React.Component{
           );
         }*/}
   })}
-      <Typography variant="h5" style={{marginTop:20, marginLeft: 150}}>Past Matches</Typography> 
+      <Typography variant="h5" style={{marginTop:20, marginLeft: 165}}>Past Matches</Typography> 
         
      {this.state.fixtures.map((fixture) => {if (moment(todayDate).isAfter(fixture.fixture_date)) 
         {
@@ -135,16 +135,11 @@ class LiveScore extends React.Component{
           <div style={{marginLeft: 150}}>
           <div className={classes.node}>
           <Grid container spacing = {4} >
-          <Grid item > 
-         
-       
-     
-               
+          <Grid item >   
                <Card className = {classes.root} variant="outlined" variant="elevation" elevation={5}>
               <CardContent>
               <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
                 {fixture.team1} <br />
-
                 <span style={{color: "red"}}> vs </span>
                  <br /> {fixture.team2}
                  <br /></Typography>

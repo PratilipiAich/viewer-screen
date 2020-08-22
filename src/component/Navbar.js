@@ -38,7 +38,7 @@ class Navbar extends React.Component {
 
   return (
     <div className={classes.roots}>
-     <AppBar position="static">
+     <AppBar position="static" style={{marginTop:0}}>
           <Tabs value={value} onChange={this.handleChange}>
           <Tab label="live score" />
            <Tab label="teams" />

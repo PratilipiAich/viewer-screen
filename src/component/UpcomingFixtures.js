@@ -14,8 +14,8 @@ const useStyles = theme => ({
   root: {
     width: 250,
     height: 250,
-    backgroundColor : "#EDEEEE",
-    marginLeft:100,
+    backgroundColor : "#e3f2fd",
+    color : "black", 
     //marginTop: theme.spacing(2),
    // marginRight: theme.spacing(2),
    // marginLeft: theme.spacing(4),
@@ -71,25 +71,22 @@ class UpcomingFixtures extends React.Component{
   render(){
     const {classes} = this.props;
     return (
-      <Container style={{marginLeft: 80, marginRight: 100}}>
+      <Container>
         
-        <Typography variant="h5" align="left" style={{marginTop:40, marginLeft: 100}} >Upcoming Match </Typography> 
+        <Typography variant="h5" align="left" style={{marginTop:40, marginLeft: 65}} >Upcoming Match </Typography> 
         {this.state.fixtures.map((fixture) => {if (moment(todayDate).isBefore(fixture.fixture_date)) 
         {
         return(
-         
-          //alert(time,fixture.fixture_time);
+         <div style={{marginLeft: 50}}>
           <div className={classes.node}>
                 <Grid container spacing = {4} >
                 <Grid item > 
-            
-                     <br />
-                     <Card className = {classes.root} variant="outlined">
+                   <br />
+                     <Card className = {classes.root} variant="outlined" variant="elevation" elevation={5}>
                     <CardContent>
                     <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
                       {fixture.team1} <br />
-      
-                      <span style={{color: "red"}}> vs </span>
+                       <span style={{color: "red"}}> vs </span>
                        <br /> {fixture.team2}
                        <br /></Typography>
                     <Divider />
@@ -99,6 +96,7 @@ class UpcomingFixtures extends React.Component{
              
               </Grid>
               </Grid>
+              </div>
               </div>
           );
         }
