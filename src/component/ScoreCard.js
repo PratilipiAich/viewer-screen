@@ -288,24 +288,12 @@ this.refreshBatsmen=this.refreshBatsmen.bind(this)
                   <div>
                     <div>
                  <br/>
-                    <div className="match_header">
-                       <div className="stadium">
-                        {this.state.venue} 
-                       </div>
-
-                       <div className="match_n_series">
-                         <h2>{this.state.team1} Vs {this.state.team2}</h2>
-                        {this.state.series_name}
-                       </div>
-
-                       <div className="match_time">
-                         {this.state.fixture_date} {this.state.fixture_time}
-                        
-                       </div>
-                       
-                      
-                       
-                     </div>
+                 <div className="match_n_series">
+                    <h2>{this.state.team1} Vs {this.state.team2}</h2>
+                   {this.state.series_name}<br/>
+                   {this.state.venue} <br/>
+                   {this.state.fixture_date} {this.state.fixture_time}
+                  </div>
                      <hr></hr>
                 <div>
                     <center>

@@ -12,13 +12,13 @@ import {Grid} from '@material-ui/core/';
 
 const useStyles = theme => ({
   root: {
-   width: 225,
-   height: 250,  
+   width: 300,
+   height: 'auto',  
    backgroundColor : "#e3f2fd",
    color : "black", 
    //marginTop: theme.spacing(2),
    //marginRight: theme.spacing(2),
-   padding: theme.spacing(2),
+   //padding: theme.spacing(2),
   },
   node: {
    
@@ -85,16 +85,15 @@ class LiveScore extends React.Component{
     const {classes} = this.props;
     return (
       <Container >
-        {this.state.Ongoing.length>0 && <Typography variant="h5" style={{marginTop:40, marginLeft: 165}} >Ongoing Matches </Typography>}
+        {this.state.Ongoing.length>0 && <Typography variant="h5" style={{marginTop:40, marginLeft: 120}} >Ongoing Matches </Typography>}
           
         {this.state.fixtures.map((fixture) => {if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time<fixture.fixture_end_time) 
        {
         return(
         //alert(time,fixture.fixture_time);
-        <div style={{marginLeft: 150, marginRight: 5}}>
+        <div style={{marginLeft: 100, marginRight: 5}}>
           
-          <Grid container spacing = {4} >
-          <Grid item >
+         
          <div className={classes.node}>
          <Card className = {classes.root} variant="outlined" variant="elevation" elevation={5}>
               <CardContent>
@@ -104,17 +103,14 @@ class LiveScore extends React.Component{
                  <br /> {fixture.team2}
                  <br /></Typography>
               <Divider />
-              <Typography variant="body1" align="left"  style={{fontSize: "14px"}}>{fixture.description} at {fixture.venue}<br /> scheduled on {fixture.fixture_date}, {fixture.fixture_start_time}</Typography>
+              <Typography variant="body1" align="center"  style={{fontSize: "14px"}}><b>{fixture.description}</b> at <b>{fixture.venue}</b> <br /> scheduled on <b>{fixture.fixture_date} {fixture.fixture_start_time}</b></Typography>
              </CardContent>
             <Divider />
             <CardActions>
-            <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
+            <Button variant="contained" color="primary" style={{margin:'auto'}} onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
             </CardActions>
             </Card>
             </div>
-
-       </Grid>
-       </Grid>
         </div>
       
           );
@@ -125,16 +121,15 @@ class LiveScore extends React.Component{
           );
         }*/}
   })}
-      <Typography variant="h5" style={{marginTop:20, marginLeft: 165}}>Past Matches</Typography> 
+      <Typography variant="h5" style={{marginTop:20, marginLeft: 120}}>Past Matches</Typography> 
         
      {this.state.fixtures.map((fixture) => {if (moment(todayDate).isAfter(fixture.fixture_date)) 
         {
         
         return(
-          <div style={{marginLeft: 150}}>
+          <div style={{marginLeft: 100}}>
           <div className={classes.node}>
-          <Grid container spacing = {4} >
-          <Grid item >   
+          
                <Card className = {classes.root} variant="outlined" variant="elevation" elevation={5}>
               <CardContent>
               <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
@@ -143,16 +138,13 @@ class LiveScore extends React.Component{
                  <br /> {fixture.team2}
                  <br /></Typography>
               <Divider />
-              <Typography variant="body1" align="left" style={{fontSize: "14px"}}>{fixture.description} at {fixture.venue} <br />scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+              <Typography variant="body1" align="center" style={{fontSize: "14px"}}><b>{fixture.description}</b> at <b>{fixture.venue}</b> <br />scheduled on <b>{fixture.fixture_date} {fixture.fixture_start_time}</b></Typography>
              </CardContent>
             <Divider />
             <CardActions>
-            <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
+            <Button variant="contained" color="primary" style={{margin:'auto'}} onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
             </CardActions>
             </Card>
-            
-        </Grid>
-        </Grid>
         </div>
         </div>
         );
@@ -163,14 +155,8 @@ class LiveScore extends React.Component{
    {this.state.fixtures.map((fixture) =>{if (moment(todayDate).isSame(fixture.fixture_date) && time>fixture.fixture_start_time && time>fixture.fixture_end_time) 
             { 
               return(
-                <div style={{marginLeft: 150}}>
+                <div style={{marginLeft: 100}}>
                 <div className={classes.node}>
-                <Grid container spacing = {4}>
-                <Grid item > 
-            
-                
-      
-     
                      <Card className = {classes.root} variant="outlined" variant="elevation" elevation={5}>
                     <CardContent>
                     <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
@@ -180,16 +166,14 @@ class LiveScore extends React.Component{
                        <br /> {fixture.team2}
                        <br /></Typography>
                     <Divider />
-                    <Typography variant="body1" align="left" style={{fontSize: "14px"}}>{fixture.description} at {fixture.venue} <br />scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+                    <Typography variant="body1" align="center" style={{fontSize: "14px"}}><b>{fixture.description}</b> at <b>{fixture.venue}</b> <br />scheduled on <b>{fixture.fixture_date} {fixture.fixture_start_time}</b></Typography>
                    </CardContent>
                   <Divider />
                   <CardActions>
-                  <Button variant="contained" color="primary" onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
+                  <Button variant="contained" color="primary" style={{margin:'auto'}} onClick={() => this.handleSelect(fixture.fixture_id)}>View ScoreCard</Button>
                   </CardActions>
                   </Card>
-                  
-              </Grid>
-              </Grid>
+
               </div>
               </div>
              );

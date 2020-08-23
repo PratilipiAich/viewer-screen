@@ -28,31 +28,16 @@
     border-bottom: 1px solid black;
     
 }
-.match_header{
-    width:100%;
-    height:60px;
-    margin-top: 0px;
-   justify-content: center;
-   margin-left: 40px; 
-  
-}
 .stadium{
     float: left;
     width:33%;
    
 }
-.match_time{
- float: left;
- width:32%;
- text-align: right;
- margin-right: 15px;
-}
 .match_n_series{
-  width:33%;
-   float: left;
-   text-align: center;
-   
-}
+    width:33%;
+   margin-left:33%;
+    text-align: center;
+ }
 .class-for-desc{
     color:rgb(196, 61, 61)
 }
