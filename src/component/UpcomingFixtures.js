@@ -16,10 +16,7 @@ const useStyles = theme => ({
     height: 250,
     backgroundColor : "#e3f2fd",
     color : "black", 
-    //marginTop: theme.spacing(2),
-   // marginRight: theme.spacing(2),
-   // marginLeft: theme.spacing(4),
-   padding: theme.spacing(2),
+   
   },
   node: {
     padding: theme.spacing(2),
@@ -90,7 +87,7 @@ class UpcomingFixtures extends React.Component{
                        <br /> {fixture.team2}
                        <br /></Typography>
                     <Divider />
-                    <Typography variant="body1" align="left" style={{fontSize: "14px"}}>{fixture.description} at {fixture.venue} <br />scheduled on {fixture.fixture_date} {fixture.fixture_start_time}</Typography>
+                    <Typography variant="body1" align="center" style={{fontSize: "14px"}}><b>{fixture.description}</b> at <b>{fixture.venue}</b> <br />scheduled on <b>{fixture.fixture_date} {fixture.fixture_start_time}</b></Typography>
                    </CardContent>
                   </Card>
              

@@ -94,7 +94,7 @@ class LiveScore extends React.Component{
         <div style={{marginLeft: 100, marginRight: 5}}>
           
          
-         <div className={classes.node}>
+        
          <Card className = {classes.root} variant="outlined" variant="elevation" elevation={5}>
               <CardContent>
               <Typography variant="h5" color="primary" align="center" style={{color: "black"}}>
@@ -111,7 +111,7 @@ class LiveScore extends React.Component{
             </CardActions>
             </Card>
             </div>
-        </div>
+       
       
           );
         }
